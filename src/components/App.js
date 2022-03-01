@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Article from "./Article";
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
 
@@ -23,7 +25,7 @@ function App() {
       <Article
       key={first.id}
       title = {first.title}
-      source = {first.source.name}
+      author={first.author}
       time={first.publishedAt}
       content={first.description}
       link={first.url}
@@ -35,7 +37,11 @@ function App() {
   
   return (
     <div>
+    <Header />
+    <div className='container'>
       {first.map(createCard)}
+    </div>
+    <Footer />
     </div>
   );
 }
@@ -43,6 +49,6 @@ function App() {
 export default App;
 
 
-//api key 1547cea63d304fe2a6e55ed35ca56f6f
+
 
 
