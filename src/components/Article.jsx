@@ -15,6 +15,7 @@ export default function Article(props) {
         columnGap: 4,
         bgcolor: '#2D4263',
         
+        
     }}>
       <CardActionArea>
         <CardMedia
