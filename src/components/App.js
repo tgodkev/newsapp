@@ -29,7 +29,7 @@ useEffect(()=> {
     const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1547cea63d304fe2a6e55ed35ca56f6f')
     const newsData = await response.json();
     setFirst(newsData.articles)
-
+    
   }
   news();
   
