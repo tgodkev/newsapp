@@ -23,26 +23,32 @@ function handleClick(e){
     e.preventDefault()
 }
 
+  useEffect(()=> {
+  try{
+    async function news(){
+      const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1547cea63d304fe2a6e55ed35ca56f6f')
+      const newsData = await response.json();
+      setFirst(newsData.articles)
+      
+     }news();
 
-useEffect(()=> {
-  async function news(){
-    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1547cea63d304fe2a6e55ed35ca56f6f')
-    const newsData = await response.json();
-    setFirst(newsData.articles)
-    
-  }
-  news();
+  }catch(error){
+    console.log(error)
+    }
   
-},  [])
+    },  [])
 
 
-
+  
   async function getNews(){
-    const answer = await fetch('https://newsapi.org/v2/everything?q='+ query +'&from=2022-03-01&sortBy=popularity&language=en&apiKey=1547cea63d304fe2a6e55ed35ca56f6f')
+    try{
+      const answer = await fetch('https://newsapi.org/v2/everything?q='+ query +'&from=2022-03-01&sortBy=popularity&language=en&apiKey=1547cea63d304fe2a6e55ed35ca56f6f')
     const data = await answer.json();
     setUserNews(data.articles)
-    //console.log(data)
-    }
+    }catch(error){
+      console.log(error);
+    }}
+    
   
   
 
